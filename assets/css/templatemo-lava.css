@@ -1011,8 +1011,8 @@ welcome
   .svgIluMob {
     background: url("../images/Wave-20s-364px.png");
     height: 90vh;
-    min-width: 90vw;
-    max-width: 90vw;
+    min-width: 100vw;
+    max-width: 100vw;
     background-size: cover;
     position: absolute;
     z-index: 0;
