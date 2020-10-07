@@ -299,6 +299,14 @@ button.main-button:hover {
 }
 
 
+
+.mainPoints li svg {
+  font-size: 1rem;
+  color: green;
+  margin-right: 10px;
+}
+
+
 /* 
 ---------------------------------------------
 header
@@ -409,20 +417,82 @@ welcome
   position: relative;
 }
 
+.validateAnim {
+  animation: validateAnim 0.5s ease forwards;
+}
+
+@keyframes validateAnim {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(0) rotate(0deg);
+  }
+}
+
+
+.faqPopBlur {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.808);
+  transition: all 0.3s ease;
+}
+
 .faqPopup {
   position: fixed;
-  height: 28rem;
-  width: 30rem;
+  height: 35rem;
+  width: 40rem;
   background: white;
   border: 1px solid rgb(224, 224, 224);
-  top: 25%;
+  top: 15%;
   bottom: 0;
   left: 0;
   right: 0;
-  transform: translate(100%, 0);
+  transform: translate(60%, 0);
   border-radius: 10px;
   padding: 2% 3%;
-  z-index: 3;
+  z-index: 1000;
   -webkit-box-shadow: 0px -1px 44px -9px rgba(167, 167, 167, 0.75);
   -moz-box-shadow: 0px -1px 44px -9px rgba(148, 148, 148, 0.75);
   box-shadow: 0px -1px 44px -9px rgba(126, 126, 126, 0.75);
@@ -500,11 +570,21 @@ welcome
 }
 
 .faqPopup .popUpBody ul {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .faqPopup .popUpBody li {
   margin-bottom: 6px;
+}
+
+.faqPopup .popUpBody li:nth-child(1) {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.faqPopup .popUpBody li:nth-child(1):hover {
+  color: #cf5d1b;
 }
 
 .faqPopup .popUpBody li:nth-child(2) {
@@ -528,7 +608,7 @@ welcome
   position: absolute;
   background: white;
   min-height: 32rem;
-  max-height: 32rem;
+  max-height: 34rem;
   min-width: 22rem;
   max-width: 22rem;
   border-radius: 10px;
@@ -641,6 +721,34 @@ welcome
 
 }
 
+.formBody .serveIpHost {
+  position: relative;
+
+}
+
+.formBody .serveIpHost input {
+  position: relative;
+  border: 2px solid rgb(226, 226, 226);
+  border-radius: 5px;
+  width: 80%;
+  outline: none;
+  padding: 2%;
+
+}
+
+.formBody .serveIpHost label {
+  pointer-events: none;
+  position: absolute;
+  background: white;
+  top: 27%;
+  left: 14%;
+  color: rgb(160, 160, 160);
+  font-size: 0.85rem;
+  font-weight: 400;
+  transition: all 0.3s ease;
+
+}
+
 .formBody .databaseName {
   transition: all 0.3s linear;
   position: relative;
@@ -731,6 +839,16 @@ welcome
 .pathDirectory input:focus+label,
 .pathDirectory input.not-empty+label,
 .pathDirectory input:valid+label {
+  -webkit-transform: translate(-10px, -24px);
+  transform: translate(-5px, -21px);
+  color: #f4813f;
+  font-size: 0.80rem;
+  font-weight: 500;
+}
+
+.serveIpHost input:focus+label,
+.serveIpHost input.not-empty+label,
+.serveIpHost input:valid+label {
   -webkit-transform: translate(-10px, -24px);
   transform: translate(-5px, -21px);
   color: #f4813f;
@@ -868,7 +986,7 @@ welcome
 }
 
 .proceedMigBtn {
-  margin: 14px 0 20px 20px;
+  margin: 0 0 20px 20px;
   border: none;
   outline: none !important;
   padding: 2%;
@@ -908,6 +1026,7 @@ welcome
   background: transparent;
   color: #fab790;
   transition: all 0.3s ease;
+  margin-bottom: 13px;
 }
 
 .backBtn:hover {
@@ -986,7 +1105,7 @@ welcome
 
   .faqPopup {
     position: fixed;
-    height: 80%;
+    min-height: 100%;
     width: 90%;
     background: white;
     border: 1px solid rgb(224, 224, 224);
@@ -997,11 +1116,8 @@ welcome
     transform: translate(5%, 0);
     border-radius: 10px;
     padding: 2% 3%;
-    z-index: 3;
-    -webkit-box-shadow: 0px -1px 44px -9px rgba(167, 167, 167, 0.75);
-    -moz-box-shadow: 0px -1px 44px -9px rgba(148, 148, 148, 0.75);
-    box-shadow: 0px -1px 44px -9px rgba(126, 126, 126, 0.75);
-    animation: popAnim 0.3s linear forwards;
+
+
   }
 
   .svgIllu {
