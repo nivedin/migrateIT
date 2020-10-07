@@ -577,6 +577,12 @@ welcome
   margin-bottom: 6px;
 }
 
+.faqPopup .popUpBody li span {
+  color: #cf5d1b;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
 .faqPopup .popUpBody li:nth-child(1) {
   position: relative;
   cursor: pointer;
